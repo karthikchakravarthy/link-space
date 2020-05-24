@@ -1,0 +1,27 @@
+{
+  "name": "linkspace",
+  "version": "1.0.0",
+  "description": "where all the links can be organized",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karthikchakravarthy/LinkSpace.git"
+  },
+  "keywords": [
+    "links"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karthikchakravarthy/LinkSpace/issues"
+  },
+  "homepage": "https://github.com/karthikchakravarthy/LinkSpace#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {}
+}
