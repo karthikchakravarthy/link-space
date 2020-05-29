@@ -1,0 +1,29 @@
+body #root .container > .main {
+    background-color: white;
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: center;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: 935px; 
+}
+
+.nav {
+    max-width : 300px;
+    flex-grow: 1;
+}
+
+.content {
+    max-width : 635px;
+    flex-grow: 1;
+}
+
+@media (max-width: 1000px) {
+    .nav{
+        display: none;
+    }
+}
