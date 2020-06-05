@@ -1,5 +1,5 @@
 body #root .container > .main {
-    background-color: white;
+    background-color: #f2f2f2;
     display: flex;
     grid-column: 1/-1;
     justify-content: center;

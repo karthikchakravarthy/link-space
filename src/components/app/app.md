@@ -1,0 +1,1 @@
+based on the authentication flag the app displays the sign in or main page of the app.

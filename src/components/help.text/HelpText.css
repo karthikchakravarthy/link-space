@@ -1,0 +1,31 @@
+.text-center {
+    padding-top: 115px;
+    text-align: center!important;
+}
+
+.txt1 {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.txt2 {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+a {
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #6a7dfe;
+}
+
+a.txt2::before {
+ content: " ";
+}

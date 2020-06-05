@@ -3,24 +3,25 @@ html, body, #root {
   margin: 0;
 }
 
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
 /* css for development */
 
-.container {
+/* .container {
   font-size: 2em;
   color: #ffeead;
-}
+} */
 
-.header {
+/* footer {
   background-color: #96ceb4;
-}
-
-footer {
-  background-color: #96ceb4;
-}
-
-main {
-  background-color: white;
-}
+} */
 
 section nav {
   background-color: #ff6f69;

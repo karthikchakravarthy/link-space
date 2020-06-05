@@ -1,5 +1,6 @@
 .container {
     height: 100%;
+    width: 100%;
     display: grid;
     grid-template: 54px auto 54px/ repeat(12, 1fr);
 }
