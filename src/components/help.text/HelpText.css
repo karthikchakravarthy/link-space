@@ -10,22 +10,14 @@
 }
 
 .txt2 {
-    font-size: 16px;
+    margin-left: 5px;
+    font-size: 14px;
     color: #333333;
     line-height: 1.5;
-}
-
-a {
-    margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
-    text-decoration: none;
 }
 
-a:hover {
+.txt2:hover {
     color: #6a7dfe;
-}
-
-a.txt2::before {
- content: " ";
 }

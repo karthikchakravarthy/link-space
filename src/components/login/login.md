@@ -1,1 +1,0 @@
-based on the flag login true or false, the component is displayed as sign in or sign up.

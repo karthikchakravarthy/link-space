@@ -1,5 +1,5 @@
-import React from 'react'
-import Login from "../login/Login"
+import React, { useState } from 'react'
+import LoginCard from "../login.card/LoginCard"
 import Header from "../header/Header"
 import Main from "../main/Main"
 import Footer from '../footer/Footer'
@@ -8,15 +8,16 @@ import './App.css'
 
 
 function App() {
-  const authenticated = true;
+  const [authenticated, setAuthentication] = useState(false);
+
   if(!authenticated){
     return (
-      <Login />
+      <LoginCard setAuthentication = {setAuthentication} />
     )
   }else {
     return (
       <div className="container">
-        <Header />
+        <Header setAuthentication = {setAuthentication} />
         <Main />
         <Footer />
       </div>
