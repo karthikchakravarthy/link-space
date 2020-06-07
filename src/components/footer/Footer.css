@@ -4,6 +4,22 @@
     border-top: 1px solid rgba(219,219,219);
 }
 
+.footer .MuiBottomNavigation-root {
+    height: 54px; 
+}
+
+.footer .MuiBottomNavigationAction-root {
+    min-width: 65px;
+}
+
+.footer .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
+    padding-top: 6px;
+}
+
+.footer .MuiBottomNavigationAction-root.Mui-selected {
+    color: black;
+}
+
 @media (min-width: 450px) {
     .footer {
         display: none;
