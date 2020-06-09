@@ -1,8 +1,8 @@
 import React from "react";
-import {BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
+import {BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import CategoryRoundedIcon from '@material-ui/icons/CategoryRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -28,7 +28,7 @@ function Footer() {
             <BottomNavigationAction value="home" icon={<HomeRoundedIcon />} />
             <BottomNavigationAction value="categories" icon={<CategoryRoundedIcon />} />
             <BottomNavigationAction value="add" icon={<AddRoundedIcon />} />
-            <BottomNavigationAction value="search" icon={<SearchRoundedIcon />} />
+            <BottomNavigationAction value='share'  icon={<SendRoundedIcon />} />
             <BottomNavigationAction value="profile" icon={<AccountCircleRoundedIcon />} />
         </BottomNavigation>
       </footer>

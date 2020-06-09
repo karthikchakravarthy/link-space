@@ -5,22 +5,25 @@
 }
 
 .footer .MuiBottomNavigation-root {
-    height: 54px; 
+    height: 54px;
+    justify-content: space-around;
 }
 
 .footer .MuiBottomNavigationAction-root {
-    min-width: 65px;
+    padding: 0;
+    min-width: 0px;
 }
 
 .footer .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
-    padding-top: 6px;
+    padding-top: 0px;
 }
 
 .footer .MuiBottomNavigationAction-root.Mui-selected {
+    padding-top: 0;
     color: black;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 600px) {
     .footer {
         display: none;
     }
