@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Route, Switch}  from 'react-router-dom'
 import LoginCard from "../login.card/LoginCard"
 import Header from "../header/Header"
 import Main from "../main/Main"
@@ -8,7 +9,7 @@ import './App.css'
 
 
 function App() {
-  const [authenticated, setAuthentication] = useState(false);
+  const [authenticated, setAuthentication] = useState(true);
 
   if(!authenticated){
     return (

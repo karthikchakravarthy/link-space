@@ -1,12 +1,15 @@
 .middle { 
     display: flex;  
     justify-content: center;
+    height: 100%;
+    overflow: hidden;
 }
 
 .content {
     max-width : 635px;
     flex-grow: 1;
     background-color: white;
+    overflow: auto;
 }
 
 .nav {
