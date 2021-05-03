@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../card/card.js"
-import "./Main.css"
+import Card from "../../components/card/card.js"
+import "./Links.css"
 import {linksData} from "../../linksData"
 
-function Main() {
+function Links() {
     const LinkCards = linksData.links.map(link => <Card key={link.id} link={link}/>)
     return (
         <main className="middle">
@@ -15,5 +15,4 @@ function Main() {
     )
 }
 
-export default Main;
-
+export default Links;

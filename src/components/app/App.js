@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {Route, Switch}  from 'react-router-dom'
 import LoginCard from "../login.card/LoginCard"
 import Header from "../header/Header"
-import Main from "../main/Main"
+import Links from "../../pages/links/Links"
 import Footer from '../footer/Footer'
 import './App.css'
 
@@ -19,7 +19,7 @@ function App() {
     return (
       <div className="container">
         <Header setAuthentication = {setAuthentication} />
-        <Main />
+        <Links />
         <Footer />
       </div>
     );
