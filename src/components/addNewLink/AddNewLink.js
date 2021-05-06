@@ -21,6 +21,15 @@ function AddNewLink({link}) {
             link: linkData.link,
         }
         setAddLink(false);
+        // fetch('http://localhost:3050/api/links',{
+        //   method: 'POST',
+        //   body: JSON.stringify(newLink),
+        // })
+        // .then((response)=>{
+        //  console.log('ADD link success',response)
+        // }).catch((error)=>{
+        //   console.log('ADD link error',error)
+        // })
         setAllLinks([newLink, ...allLinks]);
     }
     return (
