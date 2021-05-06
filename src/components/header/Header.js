@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import {BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import SendRoundedIcon from '@material-ui/icons/SendRounded';
@@ -7,13 +7,20 @@ import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import CategoryRoundedIcon from '@material-ui/icons/CategoryRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import "./Header.css"
+import {Context} from '../../Context'
 
 function Header(props) {
     //const classes = useStyles();
+    const handlePress = useContext(Context);
     const [value, setValue] = React.useState('home');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        if(newValue=='add'){
+            handlePress.setAddLink(true);
+        }
+        
+        // props.onPressHandler(newValue);
     };
     return (
         <header className="header">
