@@ -1,0 +1,8 @@
+.card input {
+    margin: 0 10px;
+}
+
+.card input[type="button"] {
+    float: right;
+    padding: 0 5px;
+}
