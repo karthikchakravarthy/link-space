@@ -18,3 +18,21 @@
     margin-bottom: 5px;
     font-weight: inherit;
 }
+.alignCenter {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+.editable{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+.editable div {
+    margin-bottom: 0.2rem;
+  }
+
+.btnContainer {
+    align-self: flex-end;
+  }
