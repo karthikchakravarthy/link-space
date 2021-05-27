@@ -11,7 +11,10 @@ function Links(props) {
         <main className="middle">
             <nav className="nav">nav</nav>
             <section className="content">
-                {showNewLink ? <NewLinkCard /> : null}
+                {/* added below div to hide for mobile scenario */}
+                <div className='newLink'>
+                  {showNewLink ? <NewLinkCard /> : null}
+                </div>
                 {LinkCards}
             </section>
         </main>

@@ -1,8 +1,29 @@
+
 .card input {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .card input[type="button"] {
-    float: right;
-    padding: 0 5px;
+  float: right;
+  padding: 0 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 12% 88%;
+  grid-gap: 10px;
+  /* padding: 10px; */
+}
+
+.grid-container > div {
+  font-size: 16px;
+}
+
+.alignCenter {
+  text-align: left !important;
+}
+
+.btnContainer {
+  margin-top: 0.5rem;
+  text-align: right;
 }
