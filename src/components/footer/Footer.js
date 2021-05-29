@@ -18,10 +18,10 @@ const useStyles = makeStyles({
     }
 });
 
-function Footer() {
+function Footer(props) {
     const classes = useStyles();
     // const [value, setValue] = React.useState('recents');
-    const { setShowNewLink } = useContext(Context);
+    const { setShowNewLink, setJwt } = useContext(Context);
     const [value, setValue] = React.useState('home');
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
     const handleChange = (event, newValue) => {
@@ -45,7 +45,7 @@ function Footer() {
             <BottomNavigationAction value="categories" icon={<CategoryRoundedIcon />} />
             <BottomNavigationAction value="add" icon={<AddRoundedIcon />} />
             <BottomNavigationAction value='share'  icon={<SendRoundedIcon />} />
-            <BottomNavigationAction value="profile" icon={<AccountCircleRoundedIcon />} />
+            <BottomNavigationAction value="profile" icon={<AccountCircleRoundedIcon />} onClick={()=>{setJwt(''); localStorage.setItem('linkspace_token', ''); props.setAuthentication(false)}}/>
           </BottomNavigation>
       </footer>
     )

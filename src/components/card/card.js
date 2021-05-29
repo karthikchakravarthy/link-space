@@ -1,12 +1,14 @@
 import React, {useContext, useState} from "react"
-import "./Card.css"
 import Popover from '../popOver/PopOver';
 import {Button, TextField} from '@material-ui/core';
 import { Context } from "../../Context";
+import makeApiCall from '../../hooks/useFetch'
+import "./Card.css"
+
 function Card({link}) {
     const [isEditable, setIsEditable] = useState(false);
     const [newLink, setnewLink] = useState({ name: link.name, link: link.link });
-    const {allLinks,setAllLinks} = useContext(Context);
+    const {allLinks, setAllLinks, jwt} = useContext(Context);
     const onChangeHandler = (event) => {
         // this handler handles both name and link properties
         const {name, value} = event.target
@@ -18,62 +20,44 @@ function Card({link}) {
     const onEdit = () => {
         setIsEditable(true);
     }
-    const onDelete = () => {
-        fetch('http://localhost:3050/api/links', {
-           method: 'DELETE',
-           headers: {
-             'Accept': 'application/json',
-             'Content-Type': 'application/json'
-           },
-           body: JSON.stringify(link),
-        })
-         .then((response) => {
-          if (response.ok) {
-            response.json().then(deletedLink => {
-              let updatedLinks = allLinks.filter((link)=>{
-                 return deletedLink.id!=link.id;
-              })
-            setAllLinks(updatedLinks);
-          })
-          } else {
-          response.text().then(err => console.error(err))
-          }
-         })
-    }
-    
-    const onUpdate = () => {
-        fetch('http://localhost:3050/api/links', {
-           method: 'PATCH',
-           headers: {
-             'Accept': 'application/json',
-             'Content-Type': 'application/json'
-           },
-           body: JSON.stringify({...newLink, id: link.id}),
-        })
-         .then((response) => {
-           if (response.ok) {
-             response.json().then(updatedLink => {
-              let updatedLinks = 
-              allLinks.map((linkData)=>{
-                     if(linkData.id === updatedLink.id)
-                     {
-                         return {
-                                  id: updatedLink.id,
-                                  name : updatedLink.name,
-                                  link: updatedLink.link,
-                                }
-                    }
-                    return linkData       
-              })
-              console.log(updatedLinks);
-              setAllLinks(updatedLinks);
-              setIsEditable(false);
-            
-           })
-           } else {
-          response.text().then(err => console.error(err))
+    const onDelete = async () => {
+      const deletedLink = await makeApiCall({
+        api: `api/links/${link._id}`,
+        method: 'DELETE',
+        headers: {
+          'x-auth-token': jwt
         }
       })
+      let updatedLinks = allLinks.filter((link)=>{
+        return deletedLink._id!=link._id;
+      })
+      setAllLinks(updatedLinks);
+    }
+    
+    const onUpdate = async () => {
+      const updatedLink = await makeApiCall({
+        api: `api/links/${link._id}`,
+        method: 'PUT',
+        headers: {
+          'x-auth-token': jwt
+        },
+        data: newLink
+      })
+
+      let updatedLinks = 
+        allLinks.map((linkData)=>{
+          if(linkData._id === updatedLink._id){
+            return {
+              _id: updatedLink._id,
+              name : updatedLink.name,
+              link: updatedLink.link,
+            }
+          }
+          return linkData       
+        })
+        console.log(updatedLinks);
+        setAllLinks(updatedLinks);
+        setIsEditable(false);
     }
 
     const onCancel = () => {

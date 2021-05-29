@@ -6,7 +6,7 @@ function FormButton(props) {
         <div className="container-login-form-btn">
             <div className="wrap-login-form-btn">
                 <div className="login-form-bgbtn"></div>
-                <button className="login-form-btn">
+                <button className="login-form-btn" onClick={props.onClick}>
                     {props.displayName}
                 </button>
             </div>

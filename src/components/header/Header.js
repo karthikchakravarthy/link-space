@@ -10,7 +10,7 @@ import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import "./Header.css"
 
 function Header(props) {
-    const { setShowNewLink } = useContext(Context);
+    const { setShowNewLink, setJwt } = useContext(Context);
     const [value, setValue] = React.useState('home');
 
     const handleChange = (event, newValue) => {
@@ -30,7 +30,7 @@ function Header(props) {
                     <BottomNavigationAction className="categories" value="categories" icon={<CategoryRoundedIcon />} />
                     <BottomNavigationAction icon={<SendRoundedIcon />} />
                     <BottomNavigationAction value="add" icon={<AddRoundedIcon />} />
-                    <BottomNavigationAction value="profile" icon={<AccountCircleRoundedIcon />} />
+                    <BottomNavigationAction value="profile" icon={<AccountCircleRoundedIcon />} onClick={()=>{setJwt(''); localStorage.setItem('linkspace_token', ''); props.setAuthentication(false)}}/>
                 </BottomNavigation>
             </div>
         </header>

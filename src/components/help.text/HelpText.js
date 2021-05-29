@@ -1,11 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import "./HelpText.css"
 
 function HelpText(props) {
     return (
         <div className="text-center">
             <span className="txt1">{props.question}</span>
-            <button onClick={() => props.setLogin(!props.login)} className="txt2" href="#">{props.answer}</button>
+            <Link to={props.to}><button className="txt2">{props.answer}</button></Link>
         </div>
     )
 }

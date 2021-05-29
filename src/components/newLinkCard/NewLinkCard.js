@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react"
 import { Context } from "../../Context"
 import "./NewLinkCard.css"
 import {Button, TextField} from '@material-ui/core';
+import makeApiCall from '../../hooks/useFetch'
 
 import Popover from '../popOver/PopOver';
 
 function NewLinkCard(props) {
   const [newLink, setnewLink] = useState({ name: '', link: '' });
-  const { allLinks, setAllLinks, setShowNewLink } = useContext(Context);
+  const { allLinks, setAllLinks, setShowNewLink, jwt } = useContext(Context);
 
   const onChangeHandler = (event) => {
     // this handler handles both name and link properties
@@ -18,32 +19,24 @@ function NewLinkCard(props) {
     })
   }
 
-  const addNewLinkHandler = () => {
+  const addNewLinkHandler = async () => {
     let link = {
       name: newLink.name,
       link: newLink.link,
     }
-    
-    fetch('http://localhost:3050/api/links', {
+    const data = await makeApiCall({
+      api: 'api/links',
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+          'x-auth-token': jwt
       },
-      body: JSON.stringify(link),
+      data: link
     })
-      .then((response) => {
-        if (response.ok) {
-          setShowNewLink(false);
-          props.onClose && props.onClose();//to close the drawer when app in mobile
-          response.json().then(newLink => {
-            setAllLinks([newLink, ...allLinks]);
-          })
-        } else {
-          response.text().then(err => console.error(err))
-        }
-      })
+    setShowNewLink(false);
+    props.onClose && props.onClose();//to close the drawer when app in mobile
+    setAllLinks([data, ...allLinks]);
   }
+
   return (
     <div className='card'>
       <div className='grid-container'>

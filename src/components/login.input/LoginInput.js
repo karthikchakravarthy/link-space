@@ -14,7 +14,7 @@ function LoginInput(props) {
 
     return (
         <div className="wrap-input validate-input" data-validate= {props.data.validationMsg}>
-            <input onFocus= {props.onFocus} onBlur={inputOnBlur} className="input" type={props.data.type} name={props.data.name} />
+            <input onFocus= {props.onFocus} onBlur={inputOnBlur} className="input" type={props.data.type} name={props.data.name} value={props.data.value} onChange={props.onChange}/>
             <span className="focus-input" data-placeholder={props.data.placeHolder}></span>
         </div>
     )
