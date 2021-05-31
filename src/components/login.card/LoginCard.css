@@ -1,36 +1,36 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .login-box {
-    height: 80%;
-    width: 360px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 50px 55px 33px 55px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  width: 360px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 50px 55px 33px 55px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 .company-name {
-    display: block;
-    font-family: Poppins-Bold;
-    font-size: 30px;
-    color: #333333;
-    line-height: 1.2;
-    text-align: center;
-    padding-bottom: 60px;
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 60px;
 }
 
 /* .login-form-title {
@@ -44,8 +44,8 @@
 } */
 
 @media (max-width: 400px) {
-    .login-box {
-        height: calc(100% - 16px);
-        padding: 50px 30px 33px 30px;
-    }
+  .login-box {
+    height: calc(100% - 16px);
+    padding: 50px 30px 33px 30px;
+  }
 }
