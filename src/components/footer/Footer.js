@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import NewLinkCard from '../new.link.card/NewLinkCard'
+import { Drawer } from '@material-ui/core'
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
 import SendRoundedIcon from '@material-ui/icons/SendRounded'
 import AddRoundedIcon from '@material-ui/icons/AddRounded'
 import CategoryRoundedIcon from '@material-ui/icons/CategoryRounded'
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded'
-import './Footer.css'
+import { makeStyles } from '@material-ui/core/styles'
 import { Context } from '../../Context'
-import Drawer from '@material-ui/core/Drawer'
-import NewLinkCard from '../newLinkCard/NewLinkCard'
+import './Footer.css'
 
 const useStyles = makeStyles({
   root: {

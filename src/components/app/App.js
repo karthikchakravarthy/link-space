@@ -6,32 +6,38 @@ import Header from '../header/Header'
 import Links from '../../pages/links/Links'
 import Footer from '../footer/Footer'
 import { Context } from '../../Context'
+import ToastMessage from '../toast.message/ToastMessage'
+import { useHistory } from 'react-router-dom'
 import './App.css'
 
 function App() {
+  const history = useHistory()
   const { jwt } = useContext(Context)
   const [authenticated, setAuthentication] = useState(jwt && true)
+  if (!authenticated) history.push('/login')
+  else history.push('/home')
 
-  if (!authenticated) {
-    return (
+  return (
+    <div>
       <Switch>
-        <Route exact path="/">
+        <Route path="/home">
+          <div className="container">
+            <Header setAuthentication={setAuthentication} />
+            <Links />
+            <Footer setAuthentication={setAuthentication} />
+          </div>
+        </Route>
+        <Route exact path="/login">
           <LoginCard setAuthentication={setAuthentication} />
         </Route>
         <Route path="/register">
           <RegisterUser setAuthentication={setAuthentication} />
         </Route>
       </Switch>
-    )
-  } else {
-    return (
-      <div className="container">
-        <Header setAuthentication={setAuthentication} />
-        <Links />
-        <Footer setAuthentication={setAuthentication} />
-      </div>
-    )
-  }
+
+      <ToastMessage />
+    </div>
+  )
 }
 
 export default App

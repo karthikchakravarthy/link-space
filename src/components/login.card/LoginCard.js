@@ -4,11 +4,12 @@ import FormButton from '../form.button/FormButton'
 import HelpText from '../help.text/HelpText'
 import { Context } from '../../Context'
 import makeApiCall from '../../hooks/useFetch'
+
 import './LoginCard.css'
 
 function LoginCard(props) {
   const [loginData, setLoginData] = useState({ email: '', password: '' })
-  const { setJwt } = useContext(Context)
+  const { setJwt, setToastData } = useContext(Context)
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -26,12 +27,17 @@ function LoginCard(props) {
         api: 'api/auth',
         method: 'POST',
       })
+
       setJwt(data.token)
       localStorage.setItem('linkspace_token', data.token)
       props.setAuthentication(true)
     } catch (ex) {
       console.error(ex)
-      return
+      setToastData({
+        open: true,
+        message: ex.message,
+        severity: 'error',
+      })
     }
   }
 
@@ -60,6 +66,7 @@ function LoginCard(props) {
           onChange={handleChange}
         />
         <FormButton displayName="login" onClick={handleLogin} />
+
         <HelpText
           question="Don’t have an account?"
           answer="Sign Up"

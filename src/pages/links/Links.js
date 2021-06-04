@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../../Context'
 import Card from '../../components/card/card.js'
-import NewLinkCard from '../../components/newLinkCard/NewLinkCard'
+import NewLinkCard from '../../components/new.link.card/NewLinkCard'
 import makeApiCall from '../../hooks/useFetch'
 import './Links.css'
 
