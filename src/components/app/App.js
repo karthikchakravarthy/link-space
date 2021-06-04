@@ -18,7 +18,7 @@ function App() {
   else history.push('/home')
 
   return (
-    <div>
+    <>
       <Switch>
         <Route path="/home">
           <div className="container">
@@ -36,7 +36,7 @@ function App() {
       </Switch>
 
       <ToastMessage />
-    </div>
+    </>
   )
 }
 

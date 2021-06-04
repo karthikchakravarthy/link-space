@@ -54,7 +54,6 @@ function Card({ link }) {
       }
       return linkData
     })
-    console.log(updatedLinks)
     setAllLinks(updatedLinks)
     setIsEditable(false)
   }

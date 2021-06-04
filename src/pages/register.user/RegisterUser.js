@@ -34,7 +34,6 @@ function RegisterUser(props) {
       method: 'POST',
     })
     setJwt(data.token)
-    console.log(data.token)
     localStorage.setItem('linkspace_token', data.token)
     props.setAuthentication(true)
   }
@@ -84,7 +83,11 @@ function RegisterUser(props) {
           onChange={handleChange}
         />
         <FormButton displayName="Register" onClick={handleLogin} />
-        <HelpText question="Already have an account?" answer="Sign In" to="/" />
+        <HelpText
+          question="Already have an account?"
+          answer="Sign In"
+          to="/login"
+        />
       </form>
     </div>
   )
