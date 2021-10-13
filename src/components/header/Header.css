@@ -1,19 +1,19 @@
 .header {
-    text-align: center;
-    height: 54px;
-    background-color: white;
-    border-bottom: 1px solid rgba(219,219,219);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: 1 / -1;
-  }
+  text-align: center;
+  height: 54px;
+  background-color: white;
+  border-bottom: 1px solid rgba(219, 219, 219);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / -1;
+}
 
 .inner-header {
-    display: flex;
-    width: 935px;
-    align-items: center;
-    padding: 0 20px;
+  display: flex;
+  width: 935px;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .inner-header .MuiBottomNavigation-root {
@@ -23,7 +23,7 @@
   margin-left: auto;
 }
 
-.inner-header .search-icon{
+.inner-header .search-icon {
   margin-left: auto;
 }
 
@@ -33,7 +33,8 @@
   min-width: 0px;
 }
 
-.inner-header .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
+.inner-header
+  .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
   padding-top: 0;
 }
 
@@ -46,7 +47,7 @@
   display: none;
 }
 
-.inner-header .search-input input{
+.inner-header .search-input input {
   padding: 2px 5px;
 }
 
@@ -73,7 +74,6 @@
   .inner-header .search-icon {
     display: none;
   }
-
 }
 
 @media (min-width: 1000px) {

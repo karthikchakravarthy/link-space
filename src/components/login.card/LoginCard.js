@@ -1,85 +1,80 @@
-import React, {useState} from 'react'
-import LoginInput from "../login.input/LoginInput"
-import FormButton from "../form.button/FormButton"
-import HelpText from "../help.text/HelpText"
-import "./LoginCard.css"
+import React, { useContext, useState } from 'react'
+import LoginInput from '../login.input/LoginInput'
+import FormButton from '../form.button/FormButton'
+import HelpText from '../help.text/HelpText'
+import { Context } from '../../Context'
+import makeApiCall from '../../hooks/useFetch'
+
+import './LoginCard.css'
 
 function LoginCard(props) {
-  const [login, setLogin] = useState(true),
-  options = {};
+  const [loginData, setLoginData] = useState({ email: '', password: '' })
+  const { setJwt, setToastData } = useContext(Context)
 
-  function onSubmit(e){
-    e.preventDefault();
-    var inputs = document.querySelectorAll('.validate-input input')
-    var check = true;
-
-    for(var i=0; i<inputs.length; i++) {
-      if(inputs[i].name === 'pass') {
-        options.pass = inputs[i];
-      }
-      if(inputs[i].name === 'verifypass') {
-        options.verifypass = inputs[i];
-      }
-      if(validate(inputs[i]) === false){
-        showValidate(inputs[i]);
-        check=false;
-      }
-    }
-
-    if(options.verifypass && (options.pass.value !== options.verifypass.value)){
-      check=false;
-      showValidate(options.verifypass);
-    }
-    
-    if(check){
-      props.setAuthentication(true);
-    }
+  function handleChange(event) {
+    const { name, value } = event.target
+    setLoginData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
   }
+  const handleLogin = async (e) => {
+    e.preventDefault()
 
-  function onFocus(e){
-    hideValidate(e.target);
-  }
+    try {
+      const data = await makeApiCall({
+        data: loginData,
+        api: 'api/auth',
+        method: 'POST',
+      })
 
-  function hideValidate(input) {
-    var thisAlert = input.parentElement;
-    thisAlert.classList.remove('alert-validate');
-  }
-
-  function validate (input) {
-    if(input.type === 'email' || input.name === 'email') {
-      if(input.value.trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-        return false;
-      }
+      setJwt(data.token)
+      localStorage.setItem('linkspace_token', data.token)
+      props.setAuthentication(true)
+    } catch (ex) {
+      console.error(ex)
+      setToastData({
+        open: true,
+        message: ex.message,
+        severity: 'error',
+      })
     }
-    else {
-      if(input.value.trim() === ''){
-        return false;
-      }
-    }
-  }
-
-  function showValidate(input) {
-    var thisAlert = input.parentElement;
-    thisAlert.classList.add('alert-validate');
   }
 
   return (
     <div className="login-box">
-      <form className="login-form" onSubmit = {onSubmit} >
+      <form className="login-form">
         <div className="company-name">Link Space</div>
+        <LoginInput
+          data={{
+            type: 'text',
+            name: 'email',
+            placeHolder: 'Email',
+            validationMsg: 'Valid email is: a@b.c',
+            value: loginData.email,
+          }}
+          onChange={handleChange}
+        />
+        <LoginInput
+          data={{
+            type: 'password',
+            name: 'password',
+            placeHolder: 'Password',
+            validationMsg: 'Enter password',
+            value: loginData.password,
+          }}
+          onChange={handleChange}
+        />
+        <FormButton displayName="login" onClick={handleLogin} />
 
-        <LoginInput onFocus= {onFocus} data={{type:'text', name:'email', placeHolder: 'Email', validationMsg: "Valid email is: a@b.c"}}/>
-        <LoginInput onFocus= {onFocus} data={{type:'password', name:'pass', placeHolder: 'Password', validationMsg: "Enter password"}}/>
-        {!login && <LoginInput onFocus= {onFocus} data={{type:'password', name:'verifypass', placeHolder: 'Re Enter Password', validationMsg: " Password doesn't match"}}/>}
-
-        {login && <FormButton  displayName='login' />}
-        {!login && <FormButton displayName='sign up' />}
-
-        {login &&<HelpText login={true} setLogin={setLogin} question='Don’t have an account?' answer='Sign Up' />}
-        {!login &&<HelpText login={false} setLogin={setLogin} question='Already have an account?' answer='Sign In' />}
+        <HelpText
+          question="Don’t have an account?"
+          answer="Sign Up"
+          to="/register"
+        />
       </form>
     </div>
-  );
+  )
 }
 
-export default LoginCard;
+export default LoginCard

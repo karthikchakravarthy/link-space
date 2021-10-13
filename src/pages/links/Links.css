@@ -1,0 +1,32 @@
+.middle {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 635px;
+  flex-grow: 1;
+  background-color: white;
+  overflow: auto;
+}
+
+.nav {
+  display: none;
+  background-color: white;
+}
+
+@media (min-width: 1000px) {
+  .nav {
+    display: initial;
+    max-width: 300px;
+    flex-grow: 1;
+    margin-right: 5px;
+  }
+}
+@media (max-width: 600px) {
+  .newLink {
+    display: none;
+  }
+}

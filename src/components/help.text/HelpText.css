@@ -1,23 +1,23 @@
 .text-center {
-    margin-top: auto;
-    text-align: center!important;
+  margin-top: auto;
+  text-align: center !important;
 }
 
 .txt1 {
-    font-size: 16px;
-    color: #666666;
-    line-height: 1.5;
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.5;
 }
 
 .txt2 {
-    margin-left: 5px;
-    font-size: 14px;
-    color: #333333;
-    line-height: 1.5;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
 }
 
 .txt2:hover {
-    color: #6a7dfe;
+  color: #6a7dfe;
 }
